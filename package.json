@@ -1,24 +1,23 @@
 {
     "name": "zombie",
     "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
+    "author": "Kamil Frydlewicz",
+    "license": "MIT",
+    "homepage": "https://github.com/frydlewicz/zombie#readme",
     "scripts": {
         "start": "node --experimental-modules index.mjs",
+        "watch": "nodemon npm start",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/frydlewicz/zombie.git"
     },
-    "author": "Kamil Frydlewicz",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/frydlewicz/zombie/issues"
-    },
-    "homepage": "https://github.com/frydlewicz/zombie#readme",
     "dependencies": {
         "express": "^4.17.1",
         "node-fetch": "^2.6.0"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.4"
     }
 }
