@@ -1,3 +1,4 @@
 {
+    "baseUrl": "http://localhost:3000",
     "itemsUrl": "https://zombie-items-api.herokuapp.com/api/items"
 }
