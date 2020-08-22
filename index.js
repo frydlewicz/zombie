@@ -13,12 +13,11 @@ app.use(express.urlencoded({
 }));
 
 app.use('/api/', apiRouter);
-
 app.use((_, res) => {
     res.status(404).end();
 });
 
-server.on('error', (error) => {
+server.on('error', error => {
     console.error(error);
 });
 

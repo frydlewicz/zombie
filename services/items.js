@@ -17,13 +17,13 @@ async function getItems() {
         const res = await fetch(config.itemsUrl);
 
         if (res.status !== 200) {
-            throw new Error('Cannot fetch from Heroku!');
+            throw 'Cannot fetch from Heroku!';
         }
 
         const json = await res.json();
 
         if (!json || !json.timestamp || !json.items) {
-            throw new Error('Incorrect data types!');
+            throw 'Incorrect data types!';
         }
 
         cache.timestamp = json.timestamp;

@@ -3,8 +3,6 @@ const fetch = require('node-fetch');
 const config = require('../config.json');
 const { getTimestampOfMidnight } = require('./helpers');
 
-const { currencies } = config;
-
 const cache = {
     timestamp: 0,
     rates: [],
@@ -19,17 +17,17 @@ async function getRates() {
         const res = await fetch(config.ratesUrl);
 
         if (res.status !== 200) {
-            throw new Error('Cannot fetch from NBP!');
+            throw 'Cannot fetch from NBP!';
         }
 
         const json = await res.json();
 
         if (!json || !json[0] || !json[0].rates) {
-            throw new Error('Incorrect data types!');
+            throw 'Incorrect data types!';
         }
 
         cache.timestamp = getTimestampOfMidnight();
-        cache.rates = json[0].rates.filter((rate) => currencies.includes(rate.code));
+        cache.rates = json[0].rates.filter(rate => config.currencies.includes(rate.code));
     } catch (error) {
         console.error(error);
     }
