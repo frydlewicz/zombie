@@ -14,7 +14,7 @@ function getZombies() {
 
 async function getZombie(id) {
     if (!zombies[id]) {
-        throw `Zombie ${id} doesn't exist!`;
+        throw `Zombie ${id} does not exist!`;
     }
 
     const items = await getItems();
@@ -26,9 +26,9 @@ async function getZombie(id) {
     const value = zombie.items.reduce((acu, item) => acu + item.price, 0);
 
     zombie.values = {
-        PLN: value.toFixed(2),
+        PLN: value,
     };
-    rates.forEach(rate => zombie.values[rate.code] = (value / rate.bid).toFixed(2));
+    rates.forEach(rate => zombie.values[rate.code] = Math.round(value / rate.bid));
 
     return zombie;
 }
@@ -55,7 +55,7 @@ function createZombie({ name, items }) {
 
 function updateZombie(id, { name, items }) {
     if (!zombies[id]) {
-        throw `Zombie ${id} doesn't exist!`;
+        throw `Zombie ${id} does not exist!`;
     }
     if (items && items.constructor !== Array) {
         throw 'items must be an array!';
@@ -74,10 +74,18 @@ function updateZombie(id, { name, items }) {
 
 function deleteZombie(id) {
     if (!zombies[id]) {
-        throw `Zombie ${id} doesn't exist!`;
+        throw `Zombie ${id} does not exist!`;
     }
 
     delete zombies[id];
 }
 
-module.exports = { getZombies, getZombie, createZombie, updateZombie, deleteZombie };
+function deleteAll() {
+    Object.keys(zombies).forEach(key => delete zombies[key]);
+}
+
+module.exports = {
+    getZombies, getZombie,
+    createZombie, updateZombie, deleteZombie,
+    deleteAll,
+};
