@@ -1,7 +1,7 @@
-import express from 'express';
-import http from 'http';
+const express = require('express');
+const http = require('http');
 
-import apiRouter from './routes/api';
+const apiRouter = require('./routes/api');
 
 const port = parseInt(process.env.PORT || '3000', 10);
 const app = express();

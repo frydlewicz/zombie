@@ -1,5 +1,10 @@
 {
     "baseUrl": "http://localhost:3000",
     "itemsUrl": "https://zombie-items-api.herokuapp.com/api/items",
-    "ratesUrl": "https://api.nbp.pl/api/exchangerates/tables/C/last?format=json"
+    "ratesUrl": "https://api.nbp.pl/api/exchangerates/tables/C/last?format=json",
+    "currencies": [
+        "PLN",
+        "EUR",
+        "USD"
+    ]
 }

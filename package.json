@@ -5,7 +5,7 @@
     "license": "MIT",
     "homepage": "https://github.com/frydlewicz/zombie#readme",
     "scripts": {
-        "start": "node --experimental-modules index.mjs",
+        "start": "node index.js",
         "watch": "nodemon npm start",
         "test": "jest test/*.test.js"
     },
