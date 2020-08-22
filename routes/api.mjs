@@ -2,9 +2,9 @@ import express from 'express';
 
 const router = express.Router();
 
-router.get('/test', (_, res) => {
+router.all('/test', (_, res) => {
     res.json({
-        key: 'value',
+        status: 'success',
     });
 });
 
