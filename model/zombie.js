@@ -5,10 +5,6 @@ const zombies = {};
 let nextId = 1;
 
 function getZombies() {
-    if (Object.keys(zombies).length === 0) {
-        throw 'No zombie has been created!';
-    }
-
     return Object.keys(zombies).map(id => parseInt(id));
 }
 

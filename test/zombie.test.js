@@ -55,11 +55,7 @@ test('operations on deleted zombie', async (done) => {
     const id = createZombie({ name, items });
 
     deleteZombie(id);
-
-    try {
-        getZombies();
-        done('expected throw error');
-    } catch (_) { }
+    expect(getZombies().length).toBe(0);
 
     try {
         await getZombie(id);

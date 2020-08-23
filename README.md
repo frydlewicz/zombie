@@ -12,7 +12,7 @@ API returns an array of zombies ids already created.
 GET /api/zombies
 ```
 
-###### successful response:
+###### response:
 ```
 HTTP/1.1 200
 Content-Type: application/json
@@ -21,20 +21,10 @@ Content-Type: application/json
     "zombies": [ 1 ]
 }
 ```
-
-###### failed  response:
-```
-HTTP/1.1 500
-Content-Type: application/json
-{
-    "status": "error",
-    "error": "No zombie has been created!"
-}
-```
 ___
 
 #### 2. specified zombie details
-API returns an object containing creation timestamp, zombie name, array of detailed items and total value divided into currencies.
+API returns object containing creation timestamp, zombie name, array of detailed items and total value divided into currencies.
 
 ###### request:
 ```
@@ -66,7 +56,7 @@ Content-Type: application/json
 
 ###### failed  response:
 ```
-HTTP/1.1 400
+HTTP/1.1 404
 Content-Type: application/json
 {
     "status": "error",
@@ -76,15 +66,16 @@ Content-Type: application/json
 ___
 
 #### 3. create new zombie
-You have to provide a zombie name and an array of items ids, both parameters are required. API will return new zombie id.
+You have to provide a zombie name and an array of items ids, both parameters are required.
+API will return new zombie id.
 
 ###### request:
 ```
 POST /api/zombie
 Content-Type: application/json
 {
-	"name": "Zombiak",
-	"items": [ 2 ]
+    "name": "Zombiak",
+    "items": [ 2 ]
 }
 ```
 
@@ -110,15 +101,15 @@ Content-Type: application/json
 ___
 
 #### 4. update existing zombie
-You can update zombie name or item ids or both at the same time.
+You can update zombie name or items ids or both at the same time.
 
 ###### request:
 ```
 PATCH /api/zombie/:id
 Content-Type: application/json
 {
-	"name": "Zombiaczek",
-	"items": [ 3 ]
+    "name": "Zombiaczek",
+    "items": [ 3 ]
 }
 ```
 
@@ -133,7 +124,7 @@ Content-Type: application/json
 
 ###### failed  response:
 ```
-HTTP/1.1 400
+HTTP/1.1 404
 Content-Type: application/json
 {
     "status": "error",
@@ -153,6 +144,7 @@ DELETE /api/zombie/:id
 ###### successful response:
 ```
 HTTP/1.1 200
+Content-Type: application/json
 {
     "status": "success"
 }
