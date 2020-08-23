@@ -15,4 +15,4 @@ test('GET /api/healthcheck', async done => {
     } catch (error) {
         done(error);
     }
-});
+}, 10000);
