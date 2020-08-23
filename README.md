@@ -1,6 +1,29 @@
 # zombie
 POC of zombie Rest API in Node.js with Express.
 
+## install project
+
+```
+git clone https://github.com/frydlewicz/zombie.git
+cd zombie
+npm i
+
+cp config.sample.json config.json
+npm run watch
+```
+
+## testing environment
+
+You can test the API on my sandbox environment:
+```
+http://sandbox.frydlewicz.pl:4051
+```
+
+For example:
+```
+http://sandbox.frydlewicz.pl:4051/api/zombie/1
+```
+
 ## API methods
 
 #### 1. list of all zombies
@@ -24,7 +47,7 @@ Content-Type: application/json
 ___
 
 #### 2. specified zombie details
-API returns object containing creation timestamp, zombie name, array of detailed items and total value divided into currencies.
+API returns an object containing creation timestamp, zombie name, array of detailed items and total value divided into currencies.
 
 ###### request:
 ```
@@ -66,8 +89,7 @@ Content-Type: application/json
 ___
 
 #### 3. create new zombie
-You have to provide a zombie name and an array of items ids, both parameters are required.
-API will return new zombie id.
+You have to provide a zombie name and an array of items ids, both parameters are required. API will return new zombie id.
 
 ###### request:
 ```
@@ -152,7 +174,7 @@ Content-Type: application/json
 
 ###### failed  response:
 ```
-HTTP/1.1 400
+HTTP/1.1 404
 Content-Type: application/json
 {
     "status": "error",
